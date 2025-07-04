@@ -1,44 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- ANIMACIÓN DE ENTRADA AL CARGAR LA PÁGINA ---
-    const initialElements = document.querySelectorAll('.animate-on-load');
-    initialElements.forEach(el => el.classList.add('visible'));
-
-    // --- ANIMACIÓN INTELIGENTE AL HACER SCROLL ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1 // El elemento se anima cuando el 10% es visible
-    });
-
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    elementsToAnimate.forEach(el => observer.observe(el));
-
-    // --- LÓGICA PARA BOTONES (COPIAR Y VISIBILIDAD) ---
-    document.querySelector('.content-gallery').addEventListener('click', event => {
+    // Se usa delegación de eventos en el contenedor principal para eficiencia
+    document.querySelector('.main-container').addEventListener('click', event => {
         const button = event.target.closest('button');
-        if (!button) return;
+        if (!button) return; // Si no se hizo clic en un botón, no hace nada
 
+        // Lógica para COPIAR TODO
         if (button.classList.contains('copy-btn')) {
             const valueToCopy = button.dataset.value;
             if (!valueToCopy) return;
 
             navigator.clipboard.writeText(valueToCopy).then(() => {
                 const icon = button.querySelector('i');
-                if(icon) icon.className = 'fa-solid fa-check';
+                const originalHTML = button.innerHTML; // Guarda el contenido original
+                button.innerHTML = '<i class="fa-solid fa-check"></i> Copiado';
+                
                 setTimeout(() => {
-                    if(icon) icon.className = 'fa-regular fa-copy';
-                }, 1500);
+                    button.innerHTML = originalHTML; // Restaura el contenido
+                }, 2000);
             }).catch(err => console.error('Error al copiar: ', err));
         }
 
+        // Lógica para VISIBILIDAD DE CONTRASEÑA
         if (button.classList.contains('toggle-vis-btn')) {
             const passwordInput = button.parentElement.querySelector('input');
             const icon = button.querySelector('i');
+
             if (passwordInput && icon) {
                 const isPassword = passwordInput.type === 'password';
                 passwordInput.type = isPassword ? 'text' : 'password';
