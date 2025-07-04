@@ -28,11 +28,31 @@ body {
     background-color: var(--surface-color);
     padding: 15px 0;
     border-bottom: 1px solid var(--border-color);
-    text-align: center;
+}
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinea el logo a la izquierda */
+}
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 12px;
 }
 .logo {
     height: 35px;
 }
+.logo-name {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
 .main-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -66,9 +86,8 @@ body {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 10px 5px 20px 5px; /* Padding para que la sombra no se corte */
+    padding: 10px 5px 20px 5px;
     margin: 0 -5px;
-    /* La magia del 'snap' */
     scroll-snap-type: x mandatory;
 }
 .accounts-carousel::-webkit-scrollbar { height: 8px; }
@@ -84,7 +103,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    scroll-snap-align: start; /* Ancla la tarjeta al inicio del scroll */
+    scroll-snap-align: start;
 }
 .account-card:hover {
     transform: translateY(-5px);
@@ -166,6 +185,10 @@ body {
     font-weight: 600;
     font-size: 0.9em;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 .copy-btn:hover {
@@ -182,6 +205,7 @@ body {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
+    .header-content { justify-content: center; } /* Centra el logo en móvil */
     .main-container { padding: 20px 10px; }
     .hero-text { margin-bottom: 40px; }
     .service-row { margin-bottom: 40px; }
