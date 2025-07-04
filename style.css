@@ -35,7 +35,6 @@ body {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    /* La magia de la simetría: */
     justify-content: space-between; 
 }
 .logo-container {
@@ -53,25 +52,21 @@ body {
     color: var(--text-primary);
     letter-spacing: 0.5px;
 }
-
-/* NUEVOS ESTILOS PARA REDES SOCIALES */
 .social-links {
     display: flex;
     align-items: center;
-    gap: 25px; /* Espacio entre los iconos */
+    gap: 25px;
 }
 .social-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 1.5em; /* Tamaño de los iconos */
+    font-size: 1.5em;
     transition: all 0.3s ease;
 }
 .social-links a:hover {
     color: var(--accent-color);
     transform: scale(1.1);
 }
-
-
 .main-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -99,7 +94,11 @@ body {
 .service-title {
     font-size: 1.8em;
     font-weight: 600;
-    margin: 0 0 20px 0;
+    margin: 0 auto 25px auto; /* Centra el título horizontalmente */
+    text-align: center; /* Centra el texto del título */
+    padding-bottom: 15px; /* Espacio para la línea inferior */
+    border-bottom: 2px solid var(--border-color); /* Línea inferior como separador */
+    max-width: 400px; /* Ancho máximo para el título */
 }
 .accounts-carousel {
     display: flex;
@@ -128,7 +127,6 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
-
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -141,7 +139,6 @@ body {
 .account-card[data-status="disponible"] .status-badge { background-color: var(--status-disponible); }
 .account-card[data-status="en-uso"] .status-badge { background-color: var(--status-en-uso); color: #000; }
 .account-card[data-status="mantenimiento"] .status-badge { background-color: var(--status-mantenimiento); }
-
 .card-body {
     padding: 15px;
     flex-grow: 1;
@@ -164,7 +161,6 @@ body {
     display: block;
     word-wrap: break-word;
 }
-
 .password-wrapper {
     display: flex;
     align-items: center;
@@ -189,7 +185,6 @@ body {
     transition: color 0.2s ease;
 }
 .icon-btn:hover { color: var(--text-primary); }
-
 .card-footer {
     padding: 15px;
     border-top: 1px solid var(--border-color);
@@ -219,17 +214,12 @@ body {
 .copy-btn .fa-check {
     color: var(--status-disponible);
 }
-
 .main-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9em; }
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    .header-content {
-        padding: 0 15px;
-    }
-    .logo-name {
-        display: none; /* Ocultamos el nombre en móviles para dar espacio */
-    }
+    .header-content { justify-content: center; } 
+    .social-links { display: none; } /* Ocultamos redes en móvil para dar espacio al logo */
     .main-container { padding: 20px 10px; }
     .hero-text { margin-bottom: 40px; }
     .service-row { margin-bottom: 40px; }
