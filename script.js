@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Se usa delegación de eventos en el contenedor principal para eficiencia
-    document.querySelector('.main-container').addEventListener('click', event => {
+    // Se usa delegación de eventos en el cuerpo del documento para abarcar todo
+    document.body.addEventListener('click', event => {
         const button = event.target.closest('button');
         if (!button) return; // Si no se hizo clic en un botón, no hace nada
 
@@ -11,12 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!valueToCopy) return;
 
             navigator.clipboard.writeText(valueToCopy).then(() => {
-                const icon = button.querySelector('i');
-                const originalHTML = button.innerHTML; // Guarda el contenido original
+                const originalHTML = button.innerHTML;
                 button.innerHTML = '<i class="fa-solid fa-check"></i> Copiado';
                 
                 setTimeout(() => {
-                    button.innerHTML = originalHTML; // Restaura el contenido
+                    button.innerHTML = originalHTML;
                 }, 2000);
             }).catch(err => console.error('Error al copiar: ', err));
         }
