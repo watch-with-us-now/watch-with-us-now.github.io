@@ -9,16 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="hero-section">
-        <div class="hero-content animate-on-load">
-            <img src="logo.png" alt="Logo WatchWithUsNow" class="hero-logo">
-            <h1>La experiencia de streaming definitiva.</h1>
-            <p>Acceso instantáneo. Sin complicaciones.</p>
+
+    <header class="main-header">
+        <div class="header-content">
+            <img src="logo.png" alt="Logo WatchWithUsNow" class="logo">
         </div>
     </header>
 
-    <main class="content-gallery">
-        <section class="service-row animate-on-scroll">
+    <main class="main-container">
+        <div class="hero-text">
+            <h1>La experiencia de streaming definitiva.</h1>
+            <p>Acceso instantáneo a tus servicios favoritos. Sin complicaciones.</p>
+        </div>
+
+        <section class="service-row">
             <h2 class="service-title">Max</h2>
             <div class="accounts-carousel">
                 <div class="account-card" data-status="disponible">
@@ -29,24 +33,32 @@
                     <div class="card-body">
                         <div class="credential-row">
                             <label>Email</label>
-                            <div class="credential-input">
-                                <span>max_user1@email.com</span>
-                                <button class="copy-btn" data-value="max_user1@email.com"><i class="fa-regular fa-copy"></i></button>
-                            </div>
+                            <span>max_user1@email.com</span>
                         </div>
                         <div class="credential-row">
                             <label>Contraseña</label>
-                            <div class="credential-input">
+                            <div class="password-wrapper">
                                 <input type="password" value="PassMax123" readonly>
-                                <button class="icon-btn toggle-vis-btn"><i class="fa-regular fa-eye"></i></button>
+                                <button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button>
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <button class="copy-btn" data-value="max_user1@email.com:PassMax123" title="Copiar Email y Contraseña">
+                            <i class="fa-regular fa-copy"></i> Copiar Todo
+                        </button>
+                    </div>
                 </div>
-                </div>
+                <div class="account-card" data-status="en-uso">
+                     <div class="card-header">
+                        <img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo">
+                        <span class="status-badge">En Uso</span>
+                    </div>
+                    </div>
+                 </div>
         </section>
-        
-        <section class="service-row animate-on-scroll">
+
+        <section class="service-row">
             <h2 class="service-title">Crunchyroll</h2>
             <div class="accounts-carousel">
                 </div>
@@ -54,7 +66,7 @@
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2025 WatchWithUsNow. Diseñado para la mejor experiencia.</p>
+        <p>&copy; 2025 WatchWithUsNow.</p>
     </footer>
 
     <script src="script.js"></script>
