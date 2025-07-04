@@ -5,19 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch With Us - Cuentas</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
     <header class="main-header">
-        <h1>Watch With Us</h1>
-        <p>Tu centro de cuentas de streaming de confianza</p>
+        <img src="logo.png" alt="Logo de Watch With Us" class="logo">
+        <div class="header-text">
+            <h1>Watch With Us</h1>
+            <p>Tu centro de cuentas de streaming de confianza</p>
+        </div>
     </header>
 
     <nav class="tabs-navigation">
-        <a href="#max" class="nav-link active">Max</a>
-        <a href="#crunchyroll" class="nav-link">Crunchyroll</a>
-        <a href="#paramount" class="nav-link">Paramount+</a>
-        <a href="#vix" class="nav-link">Vix</a>
+        <a href="#max" class="nav-link active"><span class="icon">📺</span> Max</a>
+        <a href="#crunchyroll" class="nav-link"><span class="icon">🍥</span> Crunchyroll</a>
+        <a href="#paramount" class="nav-link"><span class="icon">⛰️</span> Paramount+</a>
+        <a href="#vix" class="nav-link"><span class="icon">▶️</span> Vix</a>
     </nav>
 
     <main class="content-container">
@@ -63,7 +67,7 @@
 
         <section id="crunchyroll" class="content-section">
             <h2>Cuentas Disponibles - Crunchyroll</h2>
-            <table class="accounts-table">
+             <table class="accounts-table">
                 <thead>
                     <tr>
                         <th class="col-num">#</th>
@@ -77,48 +81,12 @@
                         <td><div class="credential-cell"><span>crunchy_user1@email.com</span><button class="copy-btn" data-value="crunchy_user1@email.com">Copiar</button></div></td>
                         <td><div class="credential-cell"><span>passCrunchy1</span><button class="copy-btn" data-value="passCrunchy1">Copiar</button></div></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                        <td><div class="credential-cell"><span>...</span><button class="copy-btn" data-value="">...</button></div></td>
-                    </tr>
-                </tbody>
+                    </tbody>
             </table>
         </section>
 
-        <section id="paramount" class="content-section">
-            <h2>Cuentas Disponibles - Paramount+</h2>
-            <table class="accounts-table">
-                <thead>
-                    <tr><th class="col-num">#</th><th>Email</th><th>Contraseña</th></tr>
-                </thead>
-                <tbody><tr><td colspan="3">Próximamente...</td></tr></tbody>
-            </table>
-        </section>
-        <section id="vix" class="content-section">
-            <h2>Cuentas Disponibles - Vix</h2>
-             <table class="accounts-table">
-                <thead>
-                    <tr><th class="col-num">#</th><th>Email</th><th>Contraseña</th></tr>
-                </thead>
-                <tbody><tr><td colspan="3">Próximamente...</td></tr></tbody>
-            </table>
-        </section>
+        <section id="paramount" class="content-section"><h2>Paramount+</h2><p>Próximamente...</p></section>
+        <section id="vix" class="content-section"><h2>Vix</h2><p>Próximamente...</p></section>
     </main>
 
     <script src="script.js"></script>
