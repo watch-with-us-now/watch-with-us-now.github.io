@@ -35,7 +35,8 @@ body {
     padding: 0 20px;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Alinea el logo a la izquierda */
+    /* La magia de la simetría: */
+    justify-content: space-between; 
 }
 .logo-container {
     display: inline-flex;
@@ -52,6 +53,24 @@ body {
     color: var(--text-primary);
     letter-spacing: 0.5px;
 }
+
+/* NUEVOS ESTILOS PARA REDES SOCIALES */
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Espacio entre los iconos */
+}
+.social-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.5em; /* Tamaño de los iconos */
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
 
 .main-container {
     max-width: 1400px;
@@ -205,7 +224,12 @@ body {
 
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
-    .header-content { justify-content: center; } /* Centra el logo en móvil */
+    .header-content {
+        padding: 0 15px;
+    }
+    .logo-name {
+        display: none; /* Ocultamos el nombre en móviles para dar espacio */
+    }
     .main-container { padding: 20px 10px; }
     .hero-text { margin-bottom: 40px; }
     .service-row { margin-bottom: 40px; }
