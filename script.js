@@ -1,25 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- NUEVA LÓGICA PARA LA NAVEGACIÓN DE PESTAÑAS ---
     const tabs = document.querySelectorAll('.tab-link');
     const contents = document.querySelectorAll('.service-content');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', (event) => {
-            event.preventDefault(); // Evita que el enlace "#" mueva la página
+            event.preventDefault();
 
-            // Quitar la clase 'active' de todas las pestañas y contenidos
             tabs.forEach(item => item.classList.remove('active'));
             contents.forEach(content => content.classList.remove('active'));
 
-            // Añadir 'active' a la pestaña clickeada y al contenido correspondiente
             tab.classList.add('active');
-            const targetId = tab.dataset.target; // Obtiene el ID del data-target
+            const targetId = tab.dataset.target;
             document.querySelector(targetId).classList.add('active');
         });
     });
 
-    // --- LÓGICA EXISTENTE PARA LOS BOTONES (COPIAR Y VISIBILIDAD) ---
     document.body.addEventListener('click', event => {
         const button = event.target.closest('button');
         if (!button) return;
