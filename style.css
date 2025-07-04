@@ -1,131 +1,111 @@
-/* --- PASO 1: Importar una fuente profesional de Google Fonts --- */
+/* Importar la fuente profesional de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-/* --- PASO 2: Definir variables de color y animación --- */
+/* Variables de color y animación */
 :root {
-    --background-dark: #121212;
-    --surface-dark: #1e1e1f;
+    --sidebar-bg: #1e1e1f;
+    --main-bg: #121212;
+    --surface-bg: #2a2a2e; /* Un color para la superficie de la tabla */
     --text-primary: #e0e0e0;
-    --text-secondary: #aaa;
+    --text-secondary: #b3b3b3;
     --border-color: #3a3a3c;
-    /* Nuevo degradado principal */
     --main-gradient: linear-gradient(90deg, #007bff, #8a2be2);
     --main-gradient-hover: linear-gradient(90deg, #006ce0, #7b1fcf);
 }
 
-/* --- PASO 3: Definir las animaciones de entrada --- */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Estilo general del cuerpo */
 body {
-    /* Usamos la nueva fuente importada */
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-dark);
+    background-color: var(--main-bg);
     color: var(--text-primary);
     margin: 0;
     padding: 0;
 }
 
-/* Encabezado principal */
-.main-header {
-    background-color: var(--surface-dark);
-    padding: 15px 25px;
+/* --- NUEVO CONTENEDOR PRINCIPAL DEL DASHBOARD --- */
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar {
+    width: 260px; /* Ancho fijo para el menú */
+    background-color: var(--sidebar-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.sidebar-header {
     display: flex;
     align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
     border-bottom: 1px solid var(--border-color);
-    /* Añadimos una sombra para darle profundidad */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    /* Aplicamos la animación de entrada */
-    animation: fadeIn 0.5s ease-out;
 }
 
-.logo {
-    height: 50px;
-    width: auto;
-    margin-right: 20px;
-    transition: transform 0.3s ease;
-}
-.logo:hover {
-    transform: rotate(-10deg) scale(1.1); /* Animación divertida al pasar el ratón */
+.sidebar-header .logo {
+    height: 40px;
+    margin-right: 15px;
 }
 
-.header-text h1 {
+.sidebar-header h2 {
     margin: 0;
-    color: #ffffff;
-    font-size: 2em;
-    font-weight: 700;
+    font-size: 1.2em;
+    font-weight: 600;
 }
 
-.header-text p {
-    margin: 0;
-    color: var(--text-secondary);
-    font-weight: 400;
-}
-
-/* Navegación de pestañas */
-.tabs-navigation {
-    background-color: var(--surface-dark);
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: 2px solid var(--border-color);
-    /* Animación con un pequeño retraso */
-    animation: fadeIn 0.5s ease-out 0.1s;
-    animation-fill-mode: backwards; /* Asegura que empieza invisible */
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre los botones del menú */
 }
 
 .nav-link {
-    color: var(--text-primary);
+    color: var(--text-secondary);
     text-decoration: none;
-    padding: 10px 20px;
-    font-weight: 600; /* Letra más gruesa */
-    display: inline-flex;
+    padding: 12px 15px;
+    font-weight: 600;
+    display: flex;
     align-items: center;
-    border-radius: 8px; /* Bordes redondeados */
-    margin: 0 5px;
-    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
 
 .nav-link .icon {
-    margin-right: 8px;
+    margin-right: 12px;
     font-size: 1.2em;
 }
 
 .nav-link:hover {
     background-color: var(--border-color);
     color: #ffffff;
-    transform: translateY(-2px); /* Efecto de "levantarse" */
 }
 
-/* Pestaña activa con el nuevo degradado */
 .nav-link.active {
     background: var(--main-gradient);
     color: #ffffff;
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+    transform: scale(1.02);
 }
 
-/* Contenedor principal del contenido */
-.content-container {
-    padding: 30px;
-    max-width: 900px;
-    margin: 0 auto;
+/* --- ÁREA DE CONTENIDO PRINCIPAL --- */
+.main-content {
+    flex-grow: 1; /* Ocupa el resto del espacio */
+    padding: 40px;
+    overflow-y: auto; /* Permite scroll si el contenido es muy largo */
 }
 
 .content-section {
     display: none;
-    background-color: var(--surface-dark);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    /* Animación de fundido para las tablas */
     animation: fadeIn 0.4s ease;
 }
 
@@ -133,31 +113,29 @@ body {
     display: block;
 }
 
-.content-section h2 {
+.content-section h1 {
+    font-size: 2.5em;
     margin-top: 0;
-    font-weight: 700;
-    border-bottom: 2px solid;
-    border-image: var(--main-gradient) 1;
-    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
-
 
 /* Tabla de cuentas */
 .accounts-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    background-color: var(--surface-bg);
+    border-radius: 12px;
+    overflow: hidden; /* Para que el borde redondeado funcione */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .accounts-table th, .accounts-table td {
-    padding: 15px; /* Más espacio para que respire */
-    border: none;
-    border-bottom: 1px solid var(--border-color); /* Solo bordes horizontales, más limpio */
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
     text-align: left;
     vertical-align: middle;
 }
 
-/* Quitamos el último borde para un look más limpio */
 .accounts-table tr:last-child td {
     border-bottom: none;
 }
@@ -167,6 +145,7 @@ body {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.8em;
+    background-color: rgba(0,0,0,0.1);
 }
 
 .col-num {
@@ -188,13 +167,12 @@ body {
     word-break: break-all;
 }
 
-/* Botón de Copiar */
 .copy-btn {
     background: var(--main-gradient);
     color: white;
     border: none;
     padding: 8px 15px;
-    border-radius: 20px; /* Botones más redondeados (píldora) */
+    border-radius: 20px;
     cursor: pointer;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
@@ -203,11 +181,10 @@ body {
 }
 
 .copy-btn:hover {
-    transform: scale(1.05); /* Se agranda un poco */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); /* Sombra de neón */
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
 }
 
-/* Le damos una animación al hacer clic */
 .copy-btn:active {
     transform: scale(0.98);
 }
