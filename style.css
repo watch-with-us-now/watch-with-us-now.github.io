@@ -46,16 +46,17 @@ body {
 /* --- Sección de Contenido --- */
 .service-content { display: none; }
 .service-content.active { display: block; }
-/* CAMBIO A FLEX PARA CENTRAR UNA SOLA TARJETA PERFECTAMENTE */
 .accounts-grid {
     display: flex;
     justify-content: center;
     padding: 10px 0;
+    gap: 25px; /* Espacio entre las tarjetas */
+    flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
 }
 
 /* --- Tarjeta de Cuenta --- */
 .account-card {
-    width: 340px; /* Ancho fijo para la tarjeta */
+    width: 340px;
     max-width: 100%;
     background-color: var(--card-color);
     border: 1px solid var(--border-color);
@@ -88,6 +89,12 @@ body {
 .main-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9em; }
 
 /* --- Responsive Design --- */
+@media (max-width: 1100px) { /* Ajuste para que las 3 tarjetas se mantengan en pantallas más pequeñas */
+    .accounts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
 @media (max-width: 768px) {
     .header-content { justify-content: center; } 
     .social-links { display: none; }
@@ -95,4 +102,5 @@ body {
     .hero-text { margin-bottom: 30px; }
     .content-tabs { flex-wrap: wrap; }
     .tab-link { padding: 8px 15px; font-size: 0.9em; }
+    .accounts-grid { grid-template-columns: 1fr; gap: 15px; }
 }
