@@ -78,9 +78,10 @@ body {
 }
 
 .accounts-table th, .accounts-table td {
-    padding: 12px;
+    padding: 8px; /* Reducimos el padding para que no sea tan grande */
     border: 1px solid #333;
     text-align: left;
+    vertical-align: middle; /* Alinea verticalmente el contenido */
 }
 
 .accounts-table th {
@@ -88,16 +89,37 @@ body {
     color: #ffffff;
 }
 
+/* Ancho para la columna de número */
+.col-num {
+    width: 5%;
+    text-align: center;
+}
+
+/* Celda que contiene la credencial y el botón */
+.credential-cell {
+    display: flex;
+    justify-content: space-between; /* El texto a la izquierda, el botón a la derecha */
+    align-items: center;
+}
+
+.credential-cell span {
+    font-family: 'Courier New', Courier, monospace; /* Fuente de ancho fijo para las credenciales */
+    font-size: 0.9em;
+    word-break: break-all; /* Evita que textos largos rompan el diseño */
+}
+
 /* Botón de Copiar */
 .copy-btn {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 5px 10px; /* Botón más pequeño */
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
+    flex-shrink: 0; /* Evita que el botón se encoja */
+    margin-left: 10px; /* Espacio entre el texto y el botón */
 }
 
 .copy-btn:hover {
