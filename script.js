@@ -1,11 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Se usa delegación de eventos en el cuerpo del documento para abarcar todo
+    // --- NUEVA LÓGICA PARA LA NAVEGACIÓN DE PESTAÑAS ---
+    const tabs = document.querySelectorAll('.tab-link');
+    const contents = document.querySelectorAll('.service-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', (event) => {
+            event.preventDefault(); // Evita que el enlace "#" mueva la página
+
+            // Quitar la clase 'active' de todas las pestañas y contenidos
+            tabs.forEach(item => item.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Añadir 'active' a la pestaña clickeada y al contenido correspondiente
+            tab.classList.add('active');
+            const targetId = tab.dataset.target; // Obtiene el ID del data-target
+            document.querySelector(targetId).classList.add('active');
+        });
+    });
+
+    // --- LÓGICA EXISTENTE PARA LOS BOTONES (COPIAR Y VISIBILIDAD) ---
     document.body.addEventListener('click', event => {
         const button = event.target.closest('button');
-        if (!button) return; // Si no se hizo clic en un botón, no hace nada
+        if (!button) return;
 
-        // Lógica para COPIAR TODO
         if (button.classList.contains('copy-btn')) {
             const valueToCopy = button.dataset.value;
             if (!valueToCopy) return;
@@ -20,9 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }).catch(err => console.error('Error al copiar: ', err));
         }
 
-        // Lógica para VISIBILIDAD DE CONTRASEÑA
         if (button.classList.contains('toggle-vis-btn')) {
-            const passwordInput = button.parentElement.querySelector('input');
+            const passwordInput = button.closest('.password-wrapper').querySelector('input');
             const icon = button.querySelector('i');
 
             if (passwordInput && icon) {
