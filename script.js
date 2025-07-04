@@ -1,52 +1,48 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Lógica para cambiar de pestaña (sin cambios)
-    const navLinks = document.querySelectorAll('.nav-link');
-    const contentSections = document.querySelectorAll('.content-section');
+    // --- Lógica para los botones dentro de las tarjetas ---
+    document.querySelector('.content-gallery').addEventListener('click', event => {
+        // Usamos .closest para encontrar el botón si se hace clic en el icono <i> de adentro
+        const button = event.target.closest('button');
+        if (!button) return;
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            navLinks.forEach(nav => nav.classList.remove('active'));
-            contentSections.forEach(section => section.classList.remove('active'));
-            const targetId = link.getAttribute('href');
-            document.querySelector(targetId).classList.add('active');
-            link.classList.add('active');
-        });
-    });
-
-    // Delegación de eventos para los botones de la tabla
-    document.querySelector('.main-content').addEventListener('click', event => {
-        const target = event.target;
-
-        // --- Lógica para el botón de COPIAR ---
-        if (target.classList.contains('copy-btn')) {
-            const valueToCopy = target.dataset.value;
+        // Lógica para COPIAR
+        if (button.classList.contains('copy-btn')) {
+            const valueToCopy = button.dataset.value;
             if (!valueToCopy) return;
 
             navigator.clipboard.writeText(valueToCopy).then(() => {
-                const originalText = target.textContent;
-                target.textContent = '¡Ok!';
-                target.classList.add('copied');
+                const icon = button.querySelector('i');
+                if(icon) icon.className = 'fa-solid fa-check'; // Cambia a check
                 setTimeout(() => {
-                    target.textContent = originalText;
-                    target.classList.remove('copied');
+                    if(icon) icon.className = 'fa-regular fa-copy'; // Vuelve a copy
                 }, 1500);
             }).catch(err => console.error('Error al copiar: ', err));
         }
 
-        // --- NUEVA LÓGICA para el botón de VISIBILIDAD ---
-        if (target.classList.contains('toggle-vis-btn')) {
-            // Busca el campo de contraseña que es hermano del botón
-            const passwordInput = target.previousElementSibling.previousElementSibling;
-            
-            if (passwordInput && passwordInput.tagName === 'INPUT') {
-                // Cambia el tipo de input
+        // Lógica para VISIBILIDAD DE CONTRASEÑA
+        if (button.classList.contains('toggle-vis-btn')) {
+            const credentialInput = button.parentElement;
+            const passwordInput = credentialInput.querySelector('input');
+            const icon = button.querySelector('i');
+
+            if (passwordInput && icon) {
                 const isPassword = passwordInput.type === 'password';
                 passwordInput.type = isPassword ? 'text' : 'password';
-                // Cambia el icono del botón
-                target.textContent = isPassword ? '🙈' : '👁️';
+                icon.className = isPassword ? 'fa-regular fa-eye-slash' : 'fa-regular fa-eye';
             }
         }
     });
+
+    // --- Lógica para el scroll suave del botón del Hero ---
+    const heroButton = document.querySelector('.hero-button');
+    if(heroButton) {
+        heroButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    }
 });
