@@ -1,28 +1,35 @@
 /* Estilo general del cuerpo */
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212; /* Fondo oscuro */
-    color: #e0e0e0; /* Texto claro */
+    background-color: #121212;
+    color: #e0e0e0;
     margin: 0;
     padding: 0;
 }
 
-/* Encabezado principal */
+/* Encabezado principal con Flexbox para alinear logo y texto */
 .main-header {
     background-color: #1f1f1f;
-    padding: 20px;
-    text-align: center;
+    padding: 15px 25px;
+    display: flex; /* Activamos Flexbox */
+    align-items: center; /* Centramos verticalmente */
     border-bottom: 1px solid #333;
 }
 
-.main-header h1 {
-    margin: 0;
-    color: #ffffff;
-    font-size: 2.5em;
+.logo {
+    height: 50px; /* Ajusta la altura de tu logo */
+    width: auto; /* Mantiene la proporción */
+    margin-right: 20px; /* Espacio entre el logo y el texto */
 }
 
-.main-header p {
-    margin: 5px 0 0;
+.header-text h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 2em;
+}
+
+.header-text p {
+    margin: 0;
     color: #aaa;
 }
 
@@ -31,7 +38,7 @@ body {
     background-color: #1f1f1f;
     text-align: center;
     padding: 10px 0;
-    border-bottom: 2px solid #007bff; /* Línea azul de acento */
+    border-bottom: 2px solid #007bff;
 }
 
 .nav-link {
@@ -40,13 +47,19 @@ body {
     padding: 10px 20px;
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
+    display: inline-flex; /* Permite alinear el icono y el texto */
+    align-items: center;
+}
+
+.nav-link .icon {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+    font-size: 1.2em; /* Tamaño del icono */
 }
 
 .nav-link:hover {
     background-color: #333;
 }
 
-/* Estilo para la pestaña activa */
 .nav-link.active {
     background-color: #007bff;
     color: #ffffff;
@@ -57,7 +70,6 @@ body {
     padding: 20px;
 }
 
-/* Por defecto, todas las secciones de contenido están ocultas */
 .content-section {
     display: none;
     background-color: #1f1f1f;
@@ -65,7 +77,6 @@ body {
     border-radius: 8px;
 }
 
-/* La sección activa sí se muestra */
 .content-section.active {
     display: block;
 }
@@ -78,10 +89,10 @@ body {
 }
 
 .accounts-table th, .accounts-table td {
-    padding: 8px; /* Reducimos el padding para que no sea tan grande */
+    padding: 8px;
     border: 1px solid #333;
     text-align: left;
-    vertical-align: middle; /* Alinea verticalmente el contenido */
+    vertical-align: middle;
 }
 
 .accounts-table th {
@@ -89,44 +100,40 @@ body {
     color: #ffffff;
 }
 
-/* Ancho para la columna de número */
 .col-num {
     width: 5%;
     text-align: center;
 }
 
-/* Celda que contiene la credencial y el botón */
 .credential-cell {
     display: flex;
-    justify-content: space-between; /* El texto a la izquierda, el botón a la derecha */
+    justify-content: space-between;
     align-items: center;
 }
 
 .credential-cell span {
-    font-family: 'Courier New', Courier, monospace; /* Fuente de ancho fijo para las credenciales */
+    font-family: 'Courier New', Courier, monospace;
     font-size: 0.9em;
-    word-break: break-all; /* Evita que textos largos rompan el diseño */
+    word-break: break-all;
 }
 
-/* Botón de Copiar */
 .copy-btn {
     background-color: #007bff;
     color: white;
     border: none;
-    padding: 5px 10px; /* Botón más pequeño */
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s;
-    flex-shrink: 0; /* Evita que el botón se encoja */
-    margin-left: 10px; /* Espacio entre el texto y el botón */
+    flex-shrink: 0;
+    margin-left: 10px;
 }
 
 .copy-btn:hover {
     background-color: #0056b3;
 }
 
-/* Estilo para el botón cuando se ha copiado */
 .copy-btn.copied {
-    background-color: #28a745; /* Verde */
+    background-color: #28a745;
 }
