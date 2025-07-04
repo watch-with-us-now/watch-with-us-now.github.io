@@ -1,106 +1,245 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --sidebar-bg: #1e1e1f;
+    --sidebar-bg: #1A1A1D;
     --main-bg: #121212;
-    --surface-bg: #2a2a2e;
-    --text-primary: #e0e0e0;
-    --text-secondary: #b3b3b3;
-    --border-color: #3a3a3c;
-    --main-gradient: linear-gradient(90deg, #007bff, #8a2be2);
+    --card-bg: #1E1E22;
+    --text-primary: #f0f2f5;
+    --text-secondary: #a9a9b3;
+    --border-color: #2c2c31;
+    --main-gradient: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --shadow-hover-color: rgba(106, 17, 203, 0.4);
 }
 
-/* --- (El resto de los estilos base no cambian) --- */
-body, .dashboard-container, .sidebar, .sidebar-header, .logo, .sidebar-nav, .nav-link, .main-content, .content-section, .accounts-table { /* ... estilos existentes ... */ }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-body { font-family: 'Poppins', sans-serif; background-color: var(--main-bg); color: var(--text-primary); margin: 0; padding: 0; }
-.dashboard-container { display: flex; min-height: 100vh; }
-.sidebar { width: 260px; background-color: var(--sidebar-bg); padding: 20px; display: flex; flex-direction: column; border-right: 1px solid var(--border-color); flex-shrink: 0; transition: width 0.3s ease; }
-.sidebar-header { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); text-align: center; }
-.sidebar-header .logo { height: auto; width: 80%; max-width: 150px; }
-.sidebar-nav { display: flex; flex-direction: column; gap: 10px; }
-.nav-link { color: var(--text-secondary); text-decoration: none; padding: 12px 15px; font-weight: 600; display: flex; align-items: center; border-radius: 8px; transition: all 0.3s ease; }
-.nav-link .icon { margin-right: 12px; font-size: 1.2em; }
-.nav-link:hover { background-color: var(--border-color); color: #ffffff; }
-.nav-link.active { background: var(--main-gradient); color: #ffffff; box-shadow: 0 0 15px rgba(138, 43, 226, 0.4); transform: scale(1.02); }
-.main-content { flex-grow: 1; padding: 40px; overflow-y: auto; }
-.content-section { display: none; animation: fadeIn 0.4s ease; }
-.content-section.active { display: block; }
-.content-section h1 { font-size: 2.5em; margin-top: 0; margin-bottom: 30px; }
-.accounts-table { width: 100%; border-collapse: collapse; background-color: var(--surface-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
-.accounts-table th, .accounts-table td { padding: 16px; border-bottom: 1px solid var(--border-color); text-align: left; vertical-align: middle; }
-.accounts-table tr:last-child td { border-bottom: none; }
-.accounts-table th { color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.8em; background-color: rgba(0,0,0,0.1); }
-.col-num { width: 5%; text-align: center; color: var(--text-secondary); }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-/* --- CELDAS DE CREDENCIALES Y BOTONES --- */
-.credential-cell {
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-header .logo {
+    width: 70%;
+    max-width: 120px;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 14px 18px;
+    font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre elementos */
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-/* Estilo para el span del email (no cambia) */
-.credential-cell span {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
-    word-break: break-all;
-    flex-grow: 1; /* Ocupa el espacio sobrante */
+.nav-link .icon {
+    margin-right: 15px;
+    font-size: 1.3em;
 }
 
-/* NUEVO: Estilos para el input de la contraseña */
-.password-cell input {
+.nav-link:hover {
+    background-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.nav-link.active {
+    background: var(--main-gradient);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 4px 15px var(--shadow-hover-color);
+}
+
+.sidebar-footer {
+    text-align: center;
+    font-size: 0.8em;
+    color: var(--text-secondary);
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- ÁREA DE CONTENIDO PRINCIPAL --- */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+.content-section {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.content-section h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* --- NUEVA CUADRÍCULA DE TARJETAS --- */
+.accounts-grid {
+    display: grid;
+    /* Esto es responsivo por naturaleza: crea columnas de 350px, tantas como quepan */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.account-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.account-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-hover-color);
+    border-color: #6a11cb;
+}
+
+.account-card h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.credential-row {
+    margin-bottom: 20px;
+}
+.credential-row:last-child {
+    margin-bottom: 0;
+}
+
+.credential-row label {
+    display: block;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.credential-input {
+    display: flex;
+    align-items: center;
+    background-color: var(--main-bg);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.credential-input span, .credential-input input {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9em;
+    font-size: 0.95em;
     background: transparent;
     border: none;
     color: var(--text-primary);
-    flex-grow: 1; /* Ocupa el espacio disponible */
-    padding: 0;
-    margin: 0;
+    flex-grow: 1;
+    padding: 0; margin: 0;
 }
-/* Quitar el borde azul al hacer clic en el input */
-.password-cell input:focus {
+.credential-input input:focus {
     outline: none;
 }
 
-/* NUEVO: Estilo para los botones de icono (el ojo) */
+.copy-btn {
+    background: var(--main-gradient);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.copy-btn:hover {
+    transform: scale(1.05);
+}
+
 .icon-btn {
-    background: transparent;
+    background: none;
     border: none;
     color: var(--text-secondary);
     cursor: pointer;
-    font-size: 1.2em;
-    padding: 5px;
-    border-radius: 50%;
-    transition: all 0.2s ease;
+    font-size: 1.3em;
+    padding: 0 8px;
+    transition: color 0.2s ease;
 }
 .icon-btn:hover {
-    background-color: var(--border-color);
     color: #fff;
 }
 
-
-/* BOTÓN DE COPIAR (SIN CAMBIOS) */
-.copy-btn { background: var(--main-gradient); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: 'Poppins', sans-serif; transition: all 0.3s ease; flex-shrink: 0; }
-.copy-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); }
-.copy-btn:active { transform: scale(0.98); }
-.copy-btn.copied { background: linear-gradient(90deg, #28a745, #20c997); }
-
-/* --- (ESTILOS RESPONSIVOS SIN CAMBIOS IMPORTANTES) --- */
+/* --- DISEÑO RESPONSIVO (AJUSTADO) --- */
 @media (max-width: 768px) {
-    .dashboard-container { flex-direction: column; }
-    .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-color); padding: 10px; }
-    .sidebar-header { display: none; }
-    .sidebar-nav { flex-direction: row; justify-content: center; gap: 5px; overflow-x: auto; padding: 5px 0; }
-    .nav-link { flex-shrink: 0; }
-    .nav-link .icon { margin-right: 5px; }
-    .main-content { padding: 20px; }
-    .content-section h1 { font-size: 1.8em; }
-    /* Ajuste para la celda de email en móvil */
-    .credential-cell:not(.password-cell) {
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 8px;
+    .dashboard-container {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 10px;
+    }
+    .sidebar-header, .sidebar-footer {
+        display: none;
+    }
+    .sidebar-nav {
+        flex-direction: row;
+        justify-content: center;
+        overflow-x: auto;
+    }
+    .main-content {
+        padding: 20px;
+    }
+    .accounts-grid {
+        /* En móvil, forzamos una sola columna para mejor control */
+        grid-template-columns: 1fr;
+    }
+    .content-section h1 {
+        font-size: 2em;
     }
 }
