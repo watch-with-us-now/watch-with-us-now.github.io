@@ -3,60 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WatchWithUsNow - Galería</title>
+    <title>WatchWithUsNow - Acceso Premium</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <header class="main-header">
-        <img src="logo.png" alt="Logo de WatchWithUsNow" class="logo">
+    <nav class="quick-nav">
+        <a href="#max" title="Max"><i class="fa-solid fa-play"></i></a>
+        <a href="#crunchyroll" title="Crunchyroll"><i class="fa-solid fa-star"></i></a>
+        <a href="#paramount" title="Paramount+"><i class="fa-solid fa-mountain"></i></a>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <img src="logo.png" alt="Logo WatchWithUsNow" class="hero-logo">
+            <h1>Tu galería de acceso al mejor streaming.</h1>
+            <p>Selecciona un servicio y disfruta del contenido al instante.</p>
+            <a href="#gallery-start" class="hero-button">Explorar Cuentas</a>
+        </div>
     </header>
 
-    <main class="content-gallery">
-        <section class="service-row">
+    <main class="content-gallery" id="gallery-start">
+        <section class="service-row" id="max">
             <h2 class="service-title">Max</h2>
             <div class="accounts-carousel">
-                <div class="account-card">
-                    <h3>Cuenta #1</h3>
-                    <div class="credential-row">
-                        <label>Email</label>
-                        <div class="credential-input">
-                            <span>max_cuenta1@email.com</span>
-                            <button class="copy-btn" data-value="max_cuenta1@email.com" aria-label="Copiar Email">Copiar</button>
-                        </div>
+                <div class="account-card" data-status="disponible">
+                    <div class="card-header">
+                        <img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo">
+                        <span class="status-badge">Disponible</span>
                     </div>
-                    <div class="credential-row">
-                        <label>Contraseña</label>
-                        <div class="credential-input">
-                            <input type="password" value="passMax1" readonly>
-                            <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
+                    <div class="card-body">
+                        <div class="credential-row">
+                            <label>Email</label>
+                            <div class="credential-input">
+                                <span>max_user1@email.com</span>
+                                <button class="copy-btn" data-value="max_user1@email.com"><i class="fa-regular fa-copy"></i></button>
+                            </div>
+                        </div>
+                        <div class="credential-row">
+                            <label>Contraseña</label>
+                            <div class="credential-input">
+                                <input type="password" value="PassMax123" readonly>
+                                <button class="icon-btn toggle-vis-btn"><i class="fa-regular fa-eye"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="account-card">
-                    <h3>Cuenta #2</h3>
+                <div class="account-card" data-status="en-uso">
+                    <div class="card-header">
+                        <img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo">
+                        <span class="status-badge">En Uso</span>
                     </div>
-                 <div class="account-card">
-                    <h3>Cuenta #3</h3>
-                    </div>
+                    <div class="card-body">
+                         </div>
                 </div>
-        </section>
-
-        <section class="service-row">
-            <h2 class="service-title">Crunchyroll</h2>
-            <div class="accounts-carousel">
-                <div class="account-card">
-                    <h3>Cuenta #1</h3>
-                    </div>
             </div>
         </section>
 
-         <section class="service-row">
-            <h2 class="service-title">Paramount+</h2>
+        <section class="service-row" id="crunchyroll">
+            <h2 class="service-title">Crunchyroll</h2>
             <div class="accounts-carousel">
                 </div>
         </section>
-
+        
     </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 WatchWithUsNow. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
