@@ -1,1 +1,110 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Fondo oscuro */
+    color: #e0e0e0; /* Texto claro */
+    margin: 0;
+    padding: 0;
+}
 
+/* Encabezado principal */
+.main-header {
+    background-color: #1f1f1f;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+.main-header h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 2.5em;
+}
+
+.main-header p {
+    margin: 5px 0 0;
+    color: #aaa;
+}
+
+/* Navegación de pestañas */
+.tabs-navigation {
+    background-color: #1f1f1f;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #007bff; /* Línea azul de acento */
+}
+
+.nav-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #333;
+}
+
+/* Estilo para la pestaña activa */
+.nav-link.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+/* Contenedor principal del contenido */
+.content-container {
+    padding: 20px;
+}
+
+/* Por defecto, todas las secciones de contenido están ocultas */
+.content-section {
+    display: none;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* La sección activa sí se muestra */
+.content-section.active {
+    display: block;
+}
+
+/* Tabla de cuentas */
+.accounts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.accounts-table th, .accounts-table td {
+    padding: 12px;
+    border: 1px solid #333;
+    text-align: left;
+}
+
+.accounts-table th {
+    background-color: #333;
+    color: #ffffff;
+}
+
+/* Botón de Copiar */
+.copy-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el botón cuando se ha copiado */
+.copy-btn.copied {
+    background-color: #28a745; /* Verde */
+}
