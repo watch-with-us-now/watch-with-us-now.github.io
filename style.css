@@ -8,180 +8,99 @@
     --text-secondary: #b3b3b3;
     --border-color: #3a3a3c;
     --main-gradient: linear-gradient(90deg, #007bff, #8a2be2);
-    --main-gradient-hover: linear-gradient(90deg, #006ce0, #7b1fcf);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--main-bg);
-    color: var(--text-primary);
-    margin: 0;
-    padding: 0;
-}
-
-.dashboard-container {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* --- BARRA LATERAL (SIDEBAR) --- */
-.sidebar {
-    width: 260px;
-    background-color: var(--sidebar-bg);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid var(--border-color);
-    flex-shrink: 0;
-    transition: width 0.3s ease; /* Transición suave para cuando cambie de tamaño */
-}
-
-.sidebar-header {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-    text-align: center; /* Centramos el logo */
-}
-
-.sidebar-header .logo {
-    height: auto; /* Dejamos que la altura se ajuste */
-    width: 80%;  /* Hacemos el logo un poco más grande */
-    max-width: 150px;
-}
-
-.sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 12px 15px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.nav-link .icon {
-    margin-right: 12px;
-    font-size: 1.2em;
-}
-
-.nav-link:hover {
-    background-color: var(--border-color);
-    color: #ffffff;
-}
-
-.nav-link.active {
-    background: var(--main-gradient);
-    color: #ffffff;
-    box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
-    transform: scale(1.02);
-}
-
-/* --- ÁREA DE CONTENIDO PRINCIPAL --- */
-.main-content {
-    flex-grow: 1;
-    padding: 40px;
-    overflow-y: auto;
-}
-
-.content-section {
-    display: none;
-    animation: fadeIn 0.4s ease;
-}
-
-.content-section.active {
-    display: block;
-}
-
-.content-section h1 {
-    font-size: 2.5em;
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
-.accounts-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: var(--surface-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* --- ESTILOS DE LA TABLA (SIN CAMBIOS) --- */
+/* --- (El resto de los estilos base no cambian) --- */
+body, .dashboard-container, .sidebar, .sidebar-header, .logo, .sidebar-nav, .nav-link, .main-content, .content-section, .accounts-table { /* ... estilos existentes ... */ }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+body { font-family: 'Poppins', sans-serif; background-color: var(--main-bg); color: var(--text-primary); margin: 0; padding: 0; }
+.dashboard-container { display: flex; min-height: 100vh; }
+.sidebar { width: 260px; background-color: var(--sidebar-bg); padding: 20px; display: flex; flex-direction: column; border-right: 1px solid var(--border-color); flex-shrink: 0; transition: width 0.3s ease; }
+.sidebar-header { padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--border-color); text-align: center; }
+.sidebar-header .logo { height: auto; width: 80%; max-width: 150px; }
+.sidebar-nav { display: flex; flex-direction: column; gap: 10px; }
+.nav-link { color: var(--text-secondary); text-decoration: none; padding: 12px 15px; font-weight: 600; display: flex; align-items: center; border-radius: 8px; transition: all 0.3s ease; }
+.nav-link .icon { margin-right: 12px; font-size: 1.2em; }
+.nav-link:hover { background-color: var(--border-color); color: #ffffff; }
+.nav-link.active { background: var(--main-gradient); color: #ffffff; box-shadow: 0 0 15px rgba(138, 43, 226, 0.4); transform: scale(1.02); }
+.main-content { flex-grow: 1; padding: 40px; overflow-y: auto; }
+.content-section { display: none; animation: fadeIn 0.4s ease; }
+.content-section.active { display: block; }
+.content-section h1 { font-size: 2.5em; margin-top: 0; margin-bottom: 30px; }
+.accounts-table { width: 100%; border-collapse: collapse; background-color: var(--surface-bg); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
 .accounts-table th, .accounts-table td { padding: 16px; border-bottom: 1px solid var(--border-color); text-align: left; vertical-align: middle; }
 .accounts-table tr:last-child td { border-bottom: none; }
 .accounts-table th { color: var(--text-secondary); font-weight: 600; text-transform: uppercase; font-size: 0.8em; background-color: rgba(0,0,0,0.1); }
 .col-num { width: 5%; text-align: center; color: var(--text-secondary); }
-.credential-cell { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
-.credential-cell span { font-family: 'Courier New', Courier, monospace; font-size: 0.9em; word-break: break-all; }
+
+/* --- CELDAS DE CREDENCIALES Y BOTONES --- */
+.credential-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre elementos */
+}
+
+/* Estilo para el span del email (no cambia) */
+.credential-cell span {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    word-break: break-all;
+    flex-grow: 1; /* Ocupa el espacio sobrante */
+}
+
+/* NUEVO: Estilos para el input de la contraseña */
+.password-cell input {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    flex-grow: 1; /* Ocupa el espacio disponible */
+    padding: 0;
+    margin: 0;
+}
+/* Quitar el borde azul al hacer clic en el input */
+.password-cell input:focus {
+    outline: none;
+}
+
+/* NUEVO: Estilo para los botones de icono (el ojo) */
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+.icon-btn:hover {
+    background-color: var(--border-color);
+    color: #fff;
+}
+
+
+/* BOTÓN DE COPIAR (SIN CAMBIOS) */
 .copy-btn { background: var(--main-gradient); color: white; border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: 600; font-family: 'Poppins', sans-serif; transition: all 0.3s ease; flex-shrink: 0; }
 .copy-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(0, 123, 255, 0.5); }
 .copy-btn:active { transform: scale(0.98); }
 .copy-btn.copied { background: linear-gradient(90deg, #28a745, #20c997); }
 
-
-/*
-==============================================
---- DISEÑO RESPONSIVO PARA MÓVILES Y TABLETS ---
-==============================================
-Estos estilos se aplican solo si el ancho de la pantalla es de 768px o menos.
-*/
+/* --- (ESTILOS RESPONSIVOS SIN CAMBIOS IMPORTANTES) --- */
 @media (max-width: 768px) {
-    .dashboard-container {
-        flex-direction: column; /* Apila el menú y el contenido verticalmente */
-    }
-
-    .sidebar {
-        width: 100%; /* El menú ahora ocupa todo el ancho */
-        height: auto; /* La altura se ajusta al contenido */
-        border-right: none; /* Quitamos el borde derecho */
-        border-bottom: 1px solid var(--border-color); /* Ponemos un borde abajo */
-        padding: 10px;
-    }
-
-    .sidebar-header {
-        display: none; /* Ocultamos el logo grande para dar espacio a la navegación */
-    }
-
-    .sidebar-nav {
-        flex-direction: row; /* Hacemos la navegación horizontal */
-        justify-content: center; /* Centramos los botones */
-        gap: 5px;
-        overflow-x: auto; /* Permite scroll horizontal si no caben los botones */
-        padding: 5px 0;
-    }
-
-    .nav-link {
-        flex-shrink: 0; /* Evita que los botones se encojan */
-    }
-
-    .nav-link .icon {
-        margin-right: 5px; /* Menos margen en móvil */
-    }
-
-    .main-content {
-        padding: 20px; /* Menos espacio en los bordes */
-    }
-
-    .content-section h1 {
-        font-size: 1.8em; /* Títulos más pequeños en móvil */
-    }
-
-    .credential-cell {
-        flex-direction: column; /* Apila el texto y el botón en móvil */
-        align-items: flex-start; /* Alinea todo a la izquierda */
+    .dashboard-container { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-color); padding: 10px; }
+    .sidebar-header { display: none; }
+    .sidebar-nav { flex-direction: row; justify-content: center; gap: 5px; overflow-x: auto; padding: 5px 0; }
+    .nav-link { flex-shrink: 0; }
+    .nav-link .icon { margin-right: 5px; }
+    .main-content { padding: 20px; }
+    .content-section h1 { font-size: 1.8em; }
+    /* Ajuste para la celda de email en móvil */
+    .credential-cell:not(.password-cell) {
+        flex-direction: column; 
+        align-items: flex-start; 
         gap: 8px;
     }
 }
