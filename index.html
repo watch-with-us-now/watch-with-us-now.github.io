@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WatchWithUsNow - Acceso Premium</title>
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="stylesheet" href="style.css?v=1.3">
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
@@ -29,90 +29,34 @@
             <p>Acceso instantáneo a tus servicios favoritos. Sin complicaciones.</p>
         </div>
 
-        <section class="service-row">
-            <h2 class="service-title">Max</h2>
-            <div class="accounts-carousel">
+        <nav class="content-tabs">
+            <a href="#" data-target="#max" class="tab-link active">Max</a>
+            <a href="#" data-target="#crunchyroll" class="tab-link">Crunchyroll</a>
+            <a href="#" data-target="#paramount" class="tab-link">Paramount+</a>
+            <a href="#" data-target="#vix" class="tab-link">Vix</a>
+        </nav>
+        <section id="max" class="service-content active">
+            <div class="accounts-grid">
                 <div class="account-card" data-status="disponible">
                     <div class="card-header"><img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body">
-                        <div class="credential-row"><label>Email</label><span>max_user1@email.com</span></div>
-                        <div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="PassMax123" readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div>
-                    </div>
+                    <div class="card-body"><div class="credential-row"><label>Email</label><span>max_user1@email.com</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="PassMax123" readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
                     <div class="card-footer"><button class="copy-btn" data-value="max_user1@email.com:PassMax123" title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
                 </div>
-                <div class="account-card" data-status="en-uso">
-                    <div class="card-header"><img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo"><span class="status-badge">En Uso</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>max_user2@email.com</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="PassMax456" readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="max_user2@email.com:PassMax456" title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-                <div class="account-card" data-status="mantenimiento">
-                    <div class="card-header"><img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo"><span class="status-badge">Mantenimiento</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/zY3jneQ.png" alt="Logo Max" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
             </div>
         </section>
 
-        <section class="service-row">
-            <h2 class="service-title">Crunchyroll</h2>
-            <div class="accounts-carousel">
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/s5tQz5U.png" alt="Logo Crunchyroll" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>crunchy1@email.com</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="PassCrunchy1" readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="crunchy1@email.com:PassCrunchy1" title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/s5tQz5U.png" alt="Logo Crunchyroll" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/s5tQz5U.png" alt="Logo Crunchyroll" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/s5tQz5U.png" alt="Logo Crunchyroll" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/s5tQz5U.png" alt="Logo Crunchyroll" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="service-row">
-            <h2 class="service-title">Paramount+</h2>
-            <div class="accounts-carousel">
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/I704y6b.png" alt="Logo Paramount+" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
-                </div>
+        <section id="crunchyroll" class="service-content">
+            <div class="accounts-grid">
                 </div>
         </section>
 
-        <section class="service-row">
-            <h2 class="service-title">Vix</h2>
-            <div class="accounts-carousel">
-                <div class="account-card" data-status="disponible">
-                    <div class="card-header"><img src="https://i.imgur.com/rS2aWz2.png" alt="Logo Vix" class="service-logo"><span class="status-badge">Disponible</span></div>
-                    <div class="card-body"><div class="credential-row"><label>Email</label><span>...</span></div><div class="credential-row"><label>Contraseña</label><div class="password-wrapper"><input type="password" value="..." readonly><button class="icon-btn toggle-vis-btn" title="Mostrar/Ocultar"><i class="fa-regular fa-eye"></i></button></div></div></div>
-                    <div class="card-footer"><button class="copy-btn" data-value="..." title="Copiar Email y Contraseña"><i class="fa-regular fa-copy"></i> Copiar Todo</button></div>
+        <section id="paramount" class="service-content">
+            <div class="accounts-grid">
                 </div>
+        </section>
+
+        <section id="vix" class="service-content">
+            <div class="accounts-grid">
                 </div>
         </section>
     </main>
