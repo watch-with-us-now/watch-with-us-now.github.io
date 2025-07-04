@@ -87,41 +87,37 @@ body {
     margin: 10px 0 0;
 }
 
-/* --- FILA DE SERVICIO Y CARRUSEL --- */
+/* --- FILA DE SERVICIO Y CUADRÍCULA (ANTES CARRUSEL) --- */
 .service-row {
     margin-bottom: 50px;
 }
 .service-title {
     font-size: 1.8em;
     font-weight: 600;
-    margin: 0 auto 25px auto; /* Centra el título horizontalmente */
-    text-align: center; /* Centra el texto del título */
-    padding-bottom: 15px; /* Espacio para la línea inferior */
-    border-bottom: 2px solid var(--border-color); /* Línea inferior como separador */
-    max-width: 400px; /* Ancho máximo para el título */
+    margin: 0 auto 25px auto;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+    max-width: 400px;
 }
+/* REEMPLAZO DE CARRUSEL POR GRID */
 .accounts-carousel {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 10px 5px 20px 5px;
-    margin: 0 -5px;
-    scroll-snap-type: x mandatory;
+    display: grid;
+    /* Crea columnas automáticas de 320px, tantas como quepan */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    justify-content: center; /* Centra las tarjetas si no llenan todo el espacio */
 }
-.accounts-carousel::-webkit-scrollbar { height: 8px; }
-.accounts-carousel::-webkit-scrollbar-track { background: var(--surface-color); border-radius: 10px; }
-.accounts-carousel::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
 
-/* --- TARJETA DE CUENTA --- */
+
+/* --- TARJETA DE CUENTA (SE ADAPTA SOLA AL GRID) --- */
 .account-card {
-    flex: 0 0 320px;
     background-color: var(--card-color);
     border: 1px solid var(--border-color);
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    scroll-snap-align: start;
 }
 .account-card:hover {
     transform: translateY(-5px);
@@ -219,10 +215,13 @@ body {
 /* --- RESPONSIVE DESIGN --- */
 @media (max-width: 768px) {
     .header-content { justify-content: center; } 
-    .social-links { display: none; } /* Ocultamos redes en móvil para dar espacio al logo */
+    .social-links { display: none; }
     .main-container { padding: 20px 10px; }
     .hero-text { margin-bottom: 40px; }
     .service-row { margin-bottom: 40px; }
-    .accounts-carousel { gap: 15px; margin: 0; padding: 10px 10px 20px 10px; }
-    .account-card { flex: 0 0 280px; }
+    /* Se ajusta el grid para móvil */
+    .accounts-carousel {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        gap: 15px;
+    }
 }
