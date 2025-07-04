@@ -3,69 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WatchWithUsNow - Dashboard</title>
+    <title>WatchWithUsNow - Galería</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
-    <div class="dashboard-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <img src="logo.png" alt="Logo de WatchWithUsNow" class="logo">
-            </div>
-            <nav class="sidebar-nav">
-                <a href="#max" class="nav-link active"><span class="icon">📺</span> Max</a>
-                <a href="#crunchyroll" class="nav-link"><span class="icon">🍥</span> Crunchyroll</a>
-                <a href="#paramount" class="nav-link"><span class="icon">⛰️</span> Paramount+</a>
-                <a href="#vix" class="nav-link"><span class="icon">▶️</span> Vix</a>
-            </nav>
-            <footer class="sidebar-footer">
-                <p>&copy; 2025 WatchWithUsNow</p>
-            </footer>
-        </aside>
+    <header class="main-header">
+        <img src="logo.png" alt="Logo de WatchWithUsNow" class="logo">
+    </header>
 
-        <main class="main-content">
-            <section id="max" class="content-section active">
-                <h1>Cuentas Disponibles - Max</h1>
-                <div class="accounts-grid">
-                    <div class="account-card">
-                        <h3>Cuenta #1</h3>
-                        <div class="credential-row">
-                            <label>Email</label>
-                            <div class="credential-input">
-                                <span>max_cuenta1@email.com</span>
-                                <button class="copy-btn" data-value="max_cuenta1@email.com" aria-label="Copiar Email">Copiar</button>
-                            </div>
-                        </div>
-                        <div class="credential-row">
-                            <label>Contraseña</label>
-                            <div class="credential-input">
-                                <input type="password" value="passMax1" readonly>
-                                <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
-                            </div>
+    <main class="content-gallery">
+        <section class="service-row">
+            <h2 class="service-title">Max</h2>
+            <div class="accounts-carousel">
+                <div class="account-card">
+                    <h3>Cuenta #1</h3>
+                    <div class="credential-row">
+                        <label>Email</label>
+                        <div class="credential-input">
+                            <span>max_cuenta1@email.com</span>
+                            <button class="copy-btn" data-value="max_cuenta1@email.com" aria-label="Copiar Email">Copiar</button>
                         </div>
                     </div>
-                    <div class="account-card">
-                        <h3>Cuenta #2</h3>
-                        <div class="credential-row">
-                            <label>Email</label>
-                            <div class="credential-input">
-                                <span>max_cuenta2@email.com</span>
-                                <button class="copy-btn" data-value="max_cuenta2@email.com" aria-label="Copiar Email">Copiar</button>
-                            </div>
-                        </div>
-                        <div class="credential-row">
-                            <label>Contraseña</label>
-                            <div class="credential-input">
-                                <input type="password" value="passMax2" readonly>
-                                <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
-                            </div>
+                    <div class="credential-row">
+                        <label>Contraseña</label>
+                        <div class="credential-input">
+                            <input type="password" value="passMax1" readonly>
+                            <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
                         </div>
                     </div>
+                </div>
+                <div class="account-card">
+                    <h3>Cuenta #2</h3>
                     </div>
-            </section>
-            </main>
-    </div>
-    <script src="script.js"></script>
+                 <div class="account-card">
+                    <h3>Cuenta #3</h3>
+                    </div>
+                </div>
+        </section>
+
+        <section class="service-row">
+            <h2 class="service-title">Crunchyroll</h2>
+            <div class="accounts-carousel">
+                <div class="account-card">
+                    <h3>Cuenta #1</h3>
+                    </div>
+            </div>
+        </section>
+
+         <section class="service-row">
+            <h2 class="service-title">Paramount+</h2>
+            <div class="accounts-carousel">
+                </div>
+        </section>
+
+    </main>
 </body>
 </html>
