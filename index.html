@@ -3,61 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página de Ventas</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #1c1c1e;
-            margin: 0;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-        }
-        .card {
-            background-color: #ffffff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            max-width: 600px;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #007aff;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            color: #6e6e73;
-            line-height: 1.6;
-        }
-        .contact-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #007aff;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: background-color 0.3s;
-        }
-        .contact-button:hover {
-            background-color: #005ec4;
-        }
-    </style>
+    <title>Watch With Us - Cuentas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card">
-        <h1>¡Bienvenido a mi Centro de Cuentas!</h1>
-        <p>
-            Aquí encontrarás las mejores ofertas en cuentas de streaming.
-            Soy vendedor con la mejor calidad y atención al cliente.
-        </p>
-        <a href="https://wa.me/TUNUMERODETELEFONO" class="contact-button">Contáctame por WhatsApp</a>
-    </div>
+
+    <header class="main-header">
+        <h1>Watch With Us</h1>
+        <p>Tu centro de cuentas de streaming de confianza</p>
+    </header>
+
+    <nav class="tabs-navigation">
+        <a href="#max" class="nav-link active">Max</a>
+        <a href="#crunchyroll" class="nav-link">Crunchyroll</a>
+        <a href="#paramount" class="nav-link">Paramount+</a>
+        <a href="#vix" class="nav-link">Vix</a>
+    </nav>
+
+    <main class="content-container">
+        <section id="max" class="content-section active">
+            <h2>Cuentas Disponibles - Max</h2>
+            <table class="accounts-table">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Contraseña</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>max_cuenta1@email.com</td>
+                        <td>pass123</td>
+                        <td><button class="copy-btn" data-email="max_cuenta1@email.com" data-pass="pass123">Copiar</button></td>
+                    </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section id="crunchyroll" class="content-section">
+            <h2>Cuentas Disponibles - Crunchyroll</h2>
+            <table class="accounts-table">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Contraseña</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>crunchy_user@email.com</td>
+                        <td>crPass456</td>
+                        <td><button class="copy-btn" data-email="crunchy_user@email.com" data-pass="crPass456">Copiar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="paramount" class="content-section">
+            <h2>Cuentas Disponibles - Paramount+</h2>
+            <table class="accounts-table">
+                <tbody>
+                    <tr>
+                        <td colspan="3">Próximamente...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="vix" class="content-section">
+            <h2>Cuentas Disponibles - Vix</h2>
+            <table class="accounts-table">
+                 <tbody>
+                    <tr>
+                        <td colspan="3">Próximamente...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
