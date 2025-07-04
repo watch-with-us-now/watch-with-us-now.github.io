@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --sidebar-bg: #1A1A1D;
-    --main-bg: #121212;
-    --card-bg: #1E1E22;
-    --text-primary: #f0f2f5;
+    --main-bg: #0f0f0f;
+    --card-bg: #1c1c1e;
+    --text-primary: #ffffff;
     --text-secondary: #a9a9b3;
     --border-color: #2c2c31;
-    --main-gradient: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --shadow-hover-color: rgba(106, 17, 203, 0.4);
+    --main-gradient: linear-gradient(90deg, #8E2DE2, #4A00E0);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-hover-color: rgba(142, 45, 226, 0.5);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -26,131 +24,89 @@ body {
     font-size: 16px;
 }
 
-.dashboard-container {
-    display: flex;
-    min-height: 100vh;
+/* --- ENCABEZADO SUPERIOR --- */
+.main-header {
+    padding: 20px 40px;
+    background-color: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-/* --- BARRA LATERAL (SIDEBAR) --- */
-.sidebar {
-    width: 250px;
-    background-color: var(--sidebar-bg);
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid var(--border-color);
-    flex-shrink: 0;
+.main-header .logo {
+    height: 35px;
+    width: auto;
 }
 
-.sidebar-header {
-    text-align: center;
-    margin-bottom: 30px;
+/* --- GALERÍA DE CONTENIDO --- */
+.content-gallery {
+    padding: 0 0 40px 40px; /* Padding a la izquierda, pero no a la derecha para que las tarjetas lleguen al borde */
 }
 
-.sidebar-header .logo {
-    width: 70%;
-    max-width: 120px;
+.service-row {
+    margin-top: 40px;
 }
 
-.sidebar-nav {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.nav-link {
-    color: var(--text-secondary);
-    text-decoration: none;
-    padding: 14px 18px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.nav-link .icon {
-    margin-right: 15px;
-    font-size: 1.3em;
-}
-
-.nav-link:hover {
-    background-color: var(--border-color);
-    color: var(--text-primary);
-}
-
-.nav-link.active {
-    background: var(--main-gradient);
-    color: #fff;
+.service-title {
+    font-size: 1.8em;
     font-weight: 600;
-    box-shadow: 0 4px 15px var(--shadow-hover-color);
+    margin: 0 0 20px 0;
 }
 
-.sidebar-footer {
-    text-align: center;
-    font-size: 0.8em;
-    color: var(--text-secondary);
-    padding-top: 20px;
-    border-top: 1px solid var(--border-color);
+/* --- CARRUSEL HORIZONTAL --- */
+.accounts-carousel {
+    display: flex;
+    overflow-x: auto; /* La magia del scroll horizontal */
+    overflow-y: hidden;
+    padding-bottom: 25px; /* Espacio para la barra de scroll para que no tape las sombras */
+    gap: 20px;
 }
 
-/* --- ÁREA DE CONTENIDO PRINCIPAL --- */
-.main-content {
-    flex-grow: 1;
-    padding: 40px;
-    overflow-y: auto;
+/* Ocultar la barra de scroll pero mantener la funcionalidad */
+.accounts-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.accounts-carousel::-webkit-scrollbar-track {
+    background: transparent;
+}
+.accounts-carousel::-webkit-scrollbar-thumb {
+    background-color: #4A00E0;
+    border-radius: 10px;
+}
+.accounts-carousel::-webkit-scrollbar-thumb:hover {
+    background-color: #8E2DE2;
 }
 
-.content-section {
-    display: none;
-    animation: fadeIn 0.5s ease-out;
-}
-
-.content-section.active {
-    display: block;
-}
-
-.content-section h1 {
-    font-size: 2.8em;
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
-/* --- NUEVA CUADRÍCULA DE TARJETAS --- */
-.accounts-grid {
-    display: grid;
-    /* Esto es responsivo por naturaleza: crea columnas de 350px, tantas como quepan */
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 25px;
-}
-
+/* --- TARJETA DE CUENTA --- */
 .account-card {
     background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 4px 12px var(--shadow-color);
+    /* Las tarjetas no se encogen y tienen un ancho fijo */
+    flex: 0 0 320px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid var(--border-color);
     transition: all 0.3s ease;
 }
 
 .account-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px var(--shadow-hover-color);
-    border-color: #6a11cb;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 10px 25px var(--shadow-hover-color);
+    border-color: #8E2DE2;
 }
 
 .account-card h3 {
-    margin-top: 0;
-    margin-bottom: 25px;
+    margin: 0 0 20px 0;
     font-weight: 600;
+    font-size: 1.1em;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
 }
 
 .credential-row {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .credential-row:last-child {
     margin-bottom: 0;
@@ -158,10 +114,11 @@ body {
 
 .credential-row label {
     display: block;
-    font-size: 0.8em;
+    font-size: 0.75em;
     font-weight: 500;
     color: var(--text-secondary);
-    margin-bottom: 8px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
 .credential-input {
@@ -173,8 +130,8 @@ body {
 }
 
 .credential-input span, .credential-input input {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.95em;
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
     background: transparent;
     border: none;
     color: var(--text-primary);
@@ -183,6 +140,12 @@ body {
 }
 .credential-input input:focus {
     outline: none;
+}
+
+/* --- BOTONES (REUTILIZADOS) --- */
+.copy-btn, .icon-btn {
+    flex-shrink: 0;
+    margin-left: 8px;
 }
 
 .copy-btn {
@@ -210,36 +173,4 @@ body {
 }
 .icon-btn:hover {
     color: #fff;
-}
-
-/* --- DISEÑO RESPONSIVO (AJUSTADO) --- */
-@media (max-width: 768px) {
-    .dashboard-container {
-        flex-direction: column;
-    }
-    .sidebar {
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid var(--border-color);
-        padding: 10px;
-    }
-    .sidebar-header, .sidebar-footer {
-        display: none;
-    }
-    .sidebar-nav {
-        flex-direction: row;
-        justify-content: center;
-        overflow-x: auto;
-    }
-    .main-content {
-        padding: 20px;
-    }
-    .accounts-grid {
-        /* En móvil, forzamos una sola columna para mejor control */
-        grid-template-columns: 1fr;
-    }
-    .content-section h1 {
-        font-size: 2em;
-    }
 }
