@@ -19,44 +19,50 @@
                 <a href="#paramount" class="nav-link"><span class="icon">⛰️</span> Paramount+</a>
                 <a href="#vix" class="nav-link"><span class="icon">▶️</span> Vix</a>
             </nav>
+            <footer class="sidebar-footer">
+                <p>&copy; 2025 WatchWithUsNow</p>
+            </footer>
         </aside>
 
         <main class="main-content">
             <section id="max" class="content-section active">
                 <h1>Cuentas Disponibles - Max</h1>
-                <table class="accounts-table">
-                    <thead>
-                        <tr>
-                            <th class="col-num">#</th>
-                            <th>Email</th>
-                            <th>Contraseña</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><div class="credential-cell"><span>max_cuenta1@email.com</span><button class="copy-btn" data-value="max_cuenta1@email.com">Copiar</button></div></td>
-                            <td>
-                                <div class="credential-cell password-cell">
-                                    <input type="password" value="passMax1" readonly>
-                                    <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
-                                    <button class="copy-btn" data-value="passMax1">Copiar</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><div class="credential-cell"><span>max_cuenta2@email.com</span><button class="copy-btn" data-value="max_cuenta2@email.com">Copiar</button></div></td>
-                            <td>
-                                <div class="credential-cell password-cell">
-                                    <input type="password" value="passMax2" readonly>
-                                    <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
-                                    <button class="copy-btn" data-value="passMax2">Copiar</button>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                </table>
+                <div class="accounts-grid">
+                    <div class="account-card">
+                        <h3>Cuenta #1</h3>
+                        <div class="credential-row">
+                            <label>Email</label>
+                            <div class="credential-input">
+                                <span>max_cuenta1@email.com</span>
+                                <button class="copy-btn" data-value="max_cuenta1@email.com" aria-label="Copiar Email">Copiar</button>
+                            </div>
+                        </div>
+                        <div class="credential-row">
+                            <label>Contraseña</label>
+                            <div class="credential-input">
+                                <input type="password" value="passMax1" readonly>
+                                <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-card">
+                        <h3>Cuenta #2</h3>
+                        <div class="credential-row">
+                            <label>Email</label>
+                            <div class="credential-input">
+                                <span>max_cuenta2@email.com</span>
+                                <button class="copy-btn" data-value="max_cuenta2@email.com" aria-label="Copiar Email">Copiar</button>
+                            </div>
+                        </div>
+                        <div class="credential-row">
+                            <label>Contraseña</label>
+                            <div class="credential-input">
+                                <input type="password" value="passMax2" readonly>
+                                <button class="icon-btn toggle-vis-btn" aria-label="Mostrar contraseña">👁️</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
             </section>
             </main>
     </div>
