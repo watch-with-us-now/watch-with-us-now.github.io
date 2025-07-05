@@ -32,6 +32,13 @@ body {
 .social-links { display: flex; align-items: center; gap: 25px; }
 .social-links a { color: var(--text-secondary); text-decoration: none; font-size: 1.5em; transition: all 0.3s ease; }
 .social-links a:hover { color: var(--accent-color); transform: scale(1.1); }
+/* NUEVO: Estilo para el enlace desactivado */
+.social-links a.disabled {
+    opacity: 0.5;
+    pointer-events: none; /* El ratón no interactúa con él */
+    cursor: not-allowed;
+}
+
 .main-container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
 .hero-text { text-align: center; margin-bottom: 40px; }
 .hero-text h1 { font-size: clamp(2em, 5vw, 3em); font-weight: 700; margin: 0; }
@@ -46,25 +53,10 @@ body {
 /* --- Sección de Contenido --- */
 .service-content { display: none; }
 .service-content.active { display: block; }
-.accounts-grid {
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    gap: 25px; /* Espacio entre las tarjetas */
-    flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben */
-}
+.accounts-grid { display: flex; justify-content: center; padding: 10px 0; gap: 25px; flex-wrap: wrap; }
 
 /* --- Tarjeta de Cuenta --- */
-.account-card {
-    width: 340px;
-    max-width: 100%;
-    background-color: var(--card-color);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+.account-card { width: 340px; max-width: 100%; background-color: var(--card-color); border: 1px solid var(--border-color); border-radius: 16px; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .account-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
 .card-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--border-color); }
 .service-logo { height: 25px; }
@@ -89,12 +81,6 @@ body {
 .main-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9em; }
 
 /* --- Responsive Design --- */
-@media (max-width: 1100px) { /* Ajuste para que las 3 tarjetas se mantengan en pantallas más pequeñas */
-    .accounts-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    }
-}
 @media (max-width: 768px) {
     .header-content { justify-content: center; } 
     .social-links { display: none; }
