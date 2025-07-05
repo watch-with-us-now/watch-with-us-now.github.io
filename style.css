@@ -44,24 +44,44 @@ body {
 .tab-link:hover { background-color: var(--card-color); color: var(--text-primary); }
 .tab-link.active { background-color: var(--accent-color); color: #fff; box-shadow: 0 0 15px var(--accent-glow); }
 
-/* --- NUEVO: CONTENEDOR DE ANUNCIOS --- */
+/* --- CONTENEDOR DE ANUNCIOS --- */
 .ad-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px 0; /* Espacio vertical para separar los anuncios del contenido */
+    margin: 30px 0;
     width: 100%;
 }
-
 
 /* --- Sección de Contenido --- */
 .service-content { display: none; }
 .service-content.active { display: block; }
 .accounts-grid { display: flex; justify-content: center; padding: 10px 0; gap: 25px; flex-wrap: wrap; }
 
-/* ... El resto de tus estilos (.account-card, etc.) no cambian ... */
-
-.main-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.9em; }
+/* --- Tarjeta de Cuenta --- */
+.account-card { width: 340px; max-width: 100%; background-color: var(--card-color); border: 1px solid var(--border-color); border-radius: 16px; display: flex; flex-direction: column; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.account-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
+.card-header { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--border-color); }
+.service-logo { height: 25px; }
+.status-badge { font-size: .8em; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
+.account-card[data-status="disponible"] .status-badge { background-color: var(--status-disponible); }
+.account-card[data-status="en-uso"] .status-badge { background-color: var(--status-en-uso); color: #000; }
+.account-card[data-status="mantenimiento"] .status-badge { background-color: var(--status-mantenimiento); }
+.card-body { padding: 15px; flex-grow: 1; text-align: center; }
+.credential-row { margin-bottom: 20px; }
+.credential-row label { display: block; font-size: .75em; font-weight: 500; color: var(--text-secondary); margin-bottom: 8px; text-transform: uppercase; }
+.credential-row span { font-family: 'Menlo', 'Monaco', monospace; font-size: .9em; padding: 8px 12px; background-color: var(--surface-color); border-radius: 6px; display: block; word-wrap: break-word; max-width: 90%; margin: 0 auto; }
+.password-wrapper { display: flex; align-items: center; background-color: var(--surface-color); border-radius: 6px; max-width: 90%; margin: 0 auto; }
+.password-wrapper input { flex-grow: 1; background: none; border: none; color: var(--text-primary); font-family: 'Menlo', 'Monaco', monospace; font-size: .9em; padding: 8px 12px; text-align: center; }
+.password-wrapper input:focus { outline: none; }
+.icon-btn { background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 8px; font-size: 1.1em; transition: color .2s ease; }
+.icon-btn:hover { color: var(--text-primary); }
+.card-footer { padding: 15px; border-top: 1px solid var(--border-color); text-align: center; }
+.copy-btn { width: auto; display: inline-flex; background-color: var(--accent-color); color: var(--text-primary); border: none; padding: 12px 25px; border-radius: 8px; font-weight: 600; font-size: .9em; cursor: pointer; align-items: center; justify-content: center; gap: 8px; transition: background-color .2s ease, transform .2s ease; }
+.copy-btn:hover { background-color: #6D28D9; }
+.copy-btn:active { transform: scale(.98); }
+.copy-btn .fa-check { color: var(--status-disponible); }
+.main-footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--border-color); color: var(--text-secondary); font-size: .9em; }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
@@ -70,6 +90,6 @@ body {
     .main-container { padding: 20px 10px; }
     .hero-text { margin-bottom: 30px; }
     .content-tabs { flex-wrap: wrap; }
-    .tab-link { padding: 8px 15px; font-size: 0.9em; }
+    .tab-link { padding: 8px 15px; font-size: .9em; }
     .accounts-grid { grid-template-columns: 1fr; gap: 15px; }
 }
